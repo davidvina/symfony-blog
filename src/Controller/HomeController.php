@@ -6,17 +6,24 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
 // for use of response
-use Symfony\Component\HttpFoundation\Response;
+//use Symfony\Component\HttpFoundation\Response
 
-class HomeController {
+// for use twig
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class HomeController extends Controller{
 	/**
 	 * @Route("/")
 	 */
 	public function hello() {
 	// this looks exactly the same
 
-		return new Response(
-			'<html><body>HOLA</body></html>'
-		);
+//		return new Response(
+//			'<html><body>HOLA</body></html>'
+//		);
+
+		return $this->render('home.html.twig', array(
+			'saludo' => 'hola',
+		));
 	}
 }
